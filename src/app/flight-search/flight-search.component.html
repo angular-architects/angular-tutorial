@@ -1,0 +1,37 @@
+<div class="header">
+  <h2 class="title">Flight Search</h2>
+</div>
+
+<form>
+  <div class="form-group">
+    <label>From:</label>
+    <input [(ngModel)]="from" name="from" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>To:</label>
+    <input [(ngModel)]="to" name="to" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <button
+      [disabled]="!from() || !to()"
+      (click)="search()"
+      class="btn btn-default"
+    >
+      Search
+    </button>
+  </div>
+</form>
+
+<div class="row">
+    @for(flight of flights(); track flight.id) {
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <app-flight-card [item]="flight" [selected]="basket()[flight.id]" (selectedChange)="updateBasket(flight.id, $event)"></app-flight-card>
+        </div>
+    }
+</div>
+
+<div>
+  <pre>{{ basket() | json }}</pre>
+</div>
+

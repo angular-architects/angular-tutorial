@@ -1,0 +1,17 @@
+@let flight = item();
+
+<div class="card" [class.selected]="selected()">
+  <div class="card-header">
+    <h2 class="title"> {{flight.from}} - {{flight.to}} </h2>
+  </div>
+
+  <div class="card-body">
+    <p>Flight-No.: {{flight.id}}</p>
+    <p>Date: {{flight.date | date: 'dd.MM.yyyy HH:mm' }}</p>
+    <p>
+      <button (click)="select()" class="btn btn-default">Select</button>
+      <button (click)="unselect()" class="btn btn-default">Remove</button>
+      <button [routerLink]="['/flight-edit', flight.id, {showDetails: true}]" class="btn btn-default">Edit</button>
+    </p>
+  </div>
+</div>
