@@ -2,3 +2,25 @@
 
 <p>Id: {{ id() }}</p>
 <p>ShowDetails: {{ showDetails() }}</p>
+
+@if (error()) {
+<div class="error-message">{{ error() }}</div>
+}
+
+<form>
+  <div class="form-group">
+    <label>From:</label>
+    <input [(ngModel)]="from" name="from" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>From:</label>
+    <input [(ngModel)]="to" name="to" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>From:</label>
+    <input [(ngModel)]="date" name="date" size="40" class="form-control" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" (click)="save()">Save</button>
+  </div>
+</form>
